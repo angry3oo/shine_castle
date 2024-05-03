@@ -8,17 +8,11 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<div class="leftbar">
+	<tiles:insertAttribute name="header" />
+	<div class="content">
 		<tiles:insertAttribute name="leftbar" />
-		<div class="header">
-			<tiles:insertAttribute name="header" />	
-		</div>
+		<tiles:insertAttribute name="content" />
 	</div>
-	<div>
-		<tiles:insertAttribute name="container" />
-	</div>
-	<div class="footer">
-		<tiles:insertAttribute name="footer" />
-	</div>
+	<tiles:insertAttribute name="footer" />
 </body>
 </html>
