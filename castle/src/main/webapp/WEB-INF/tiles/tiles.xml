@@ -2,21 +2,25 @@
 <!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN" "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
 
 <tiles-definitions>
-	<definition name="layout" template="base-main">
-		<put-attribute name="header"></put-attribute>
-		<put-attribute name="footer"></put-attribute>
-		<put-attribute name="leftbar"></put-attribute>
+	<definition name="template" template="/WEB-INF/tiles/layouts/template.jsp">
+		<put-attribute name="header" value="/WEB-INF/tiles/layouts/header.jsp"></put-attribute>
+		<put-attribute name="footer" value="/WEB-INF/tiles/layouts/footer.jsp"></put-attribute>
+		<put-attribute name="leftbar" value="/WEB-INF/tiles/layouts/leftbar.jsp"></put-attribute>
 	</definition>
 	
-	<definition name="main.*" extends="laylout">
+	<definition name="*" extends="template">
 		<put-attribute name="body" value="/WEB-INF/views/{1}.jsp"></put-attribute>
 	</definition>
 	
-	<definition name="main.*/*" extends="laylout">
+	<definition name="*/*" extends="template">
 		<put-attribute name="body" value="/WEB-INF/views/{1}/{2}.jsp"></put-attribute>
 	</definition>
 	
-	<definition name="main.*/*/*" extends="laylout">
+	<definition name="*/*/*" extends="template">
 		<put-attribute name="body" value="/WEB-INF/views/{1}/{2}/{3}.jsp"></put-attribute>
 	</definition>
+	
+	<!-- <definition name="main.*/*/*" extends="template">
+		<put-attribute name="body" value="/WEB-INF/views/{1}/{2}/{3}.jsp"></put-attribute>
+	</definition> -->
 </tiles-definitions>
