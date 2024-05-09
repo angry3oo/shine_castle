@@ -3,10 +3,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
+	<meta name="CSRF_TOKEN" content="${csrfToken.token}"/>
+	<meta name="CSRF_HEADER" content="${csrfToken.headerName}"/>
+	<meta name="CSRF_PARAM_NAME" content="${csrfToken.parameterName}"/>
+	
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
 </head>
 <body>
+	<%-- <input type="hidden" name="${csrfToken.parameterName}" value="${csrfToken.token}" /> --%>
 	<tiles:insertAttribute name="header" />
 	<div id="row" class="row" style="height: 70%; --bs-gutter-x: 0;">
 		<nav class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse" style="width: 280px;">
