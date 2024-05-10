@@ -2,14 +2,7 @@
 <%@include file="/WEB-INF/common/Common.jsp"%>
 <!DOCTYPE html>
 <html>
-<head>
-	<meta name="CSRF_TOKEN" content="${csrfToken.token}"/>
-	<meta name="CSRF_HEADER" content="${csrfToken.headerName}"/>
-	<meta name="CSRF_PARAM_NAME" content="${csrfToken.parameterName}"/>
-	
-	<meta charset="UTF-8">
-	<title>Insert title here</title>
-</head>
+<tiles:insertAttribute name="head" />
 <body>
 	<%-- <input type="hidden" name="${csrfToken.parameterName}" value="${csrfToken.token}" /> --%>
 	<tiles:insertAttribute name="header" />

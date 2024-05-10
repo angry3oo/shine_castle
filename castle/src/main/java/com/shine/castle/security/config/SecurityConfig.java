@@ -40,11 +40,17 @@ public class SecurityConfig {
 		.csrfTokenRepository(csrfTokenRepository())
 		.and()
 		.authorizeHttpRequests()
-		.antMatchers("/**")
-		.permitAll()
-		.anyRequest()
-		.authenticated()
+		.antMatchers("/login/**").permitAll()
+		.antMatchers("/css/**").permitAll()
+		.antMatchers("/js/**").permitAll()
+		.anyRequest().authenticated()
 		;
+		
+		http.formLogin()
+		.loginPage("/login")
+		.loginProcessingUrl("/login/auth");
+		
+		
 		return http.build();
 	}
 	
