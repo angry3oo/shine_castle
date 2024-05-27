@@ -34,6 +34,9 @@ dependencies {
     implementation 'org.apache.tiles:tiles-jsp:3.0.8'
     implementation 'org.apache.tiles:tiles-core:3.0.8'
     implementation 'org.apache.tiles:tiles-servlet:3.0.8'
+    
+    //jdbc log4j
+    implementation 'org.bgee.log4jdbc-log4j2:log4jdbc-log4j2-jdbc4.1:1.16'
 }
 
 tasks.named('test') {

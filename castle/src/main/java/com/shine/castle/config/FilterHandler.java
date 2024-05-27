@@ -21,7 +21,6 @@ public class FilterHandler implements Filter {
 	@Override
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
 			throws IOException, ServletException {
-		log.info("doFilter");
 		chain.doFilter(request,response);
 	}
 

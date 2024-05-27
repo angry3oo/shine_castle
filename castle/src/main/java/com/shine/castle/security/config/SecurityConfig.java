@@ -12,7 +12,7 @@ import org.springframework.security.web.csrf.HttpSessionCsrfTokenRepository;
 @Order(2)
 @SuppressWarnings("deprecation")
 @Configuration
-@EnableWebSecurity(debug = true)
+@EnableWebSecurity
 public class SecurityConfig {
 
 	/**
@@ -48,7 +48,10 @@ public class SecurityConfig {
 		
 		http.formLogin()
 		.loginPage("/login")
-		.loginProcessingUrl("/login/auth");
+		.loginProcessingUrl("/login/auth")
+		.usernameParameter("userId")
+		.passwordParameter("passWord")
+		;
 		
 		
 		return http.build();
