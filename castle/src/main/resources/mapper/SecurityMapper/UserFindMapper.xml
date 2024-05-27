@@ -11,6 +11,7 @@
 		    U.USER_ROLE,
 		    U.USER_RGS_DATE,
 		    U.USER_MAIL,
+		    U.USER_ADDRESS,
 		    U.USER_PHONE_NUM,
 		    U.USER_SEX,
 		    U.USER_BIRTH

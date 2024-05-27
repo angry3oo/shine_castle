@@ -15,19 +15,19 @@ import lombok.ToString;
 @ToString
 public class UserVo implements UserDetails{
 
-	private String id = "";
-	private String password = "";
+	private String userId = "";
+	private String userPassWord = "";
 	
-	private String name = "";
+	private String userName = "";
 	
 	//USER(일반유저), ADMIN(관리자)
-	private String role = "";
-	private String mail = "";
-	private String phoneNum = "";
-	private String address = "";
-	private String sex = "";
-	private String birth = "";
-	private String rgsDate = "";
+	private String userRole = "";
+	private String userMail = "";
+	private String userPhoneNum = "";
+	private String userAddress = "";
+	private String userSex = "";
+	private String userBirth = "";
+	private String userRgsDate = "";
 	
 	
 	@Override
@@ -37,7 +37,7 @@ public class UserVo implements UserDetails{
 			new GrantedAuthority() {
 				@Override
 				public String getAuthority() {
-					return "ROLE_"+role;
+					return "ROLE_"+userRole;
 				}
 			}
 		);
@@ -46,12 +46,12 @@ public class UserVo implements UserDetails{
 
 	@Override
 	public String getPassword() {
-		return password;
+		return userPassWord;
 	}
 
 	@Override
 	public String getUsername() {
-		return id;
+		return userId;
 	}
 
 	@Override

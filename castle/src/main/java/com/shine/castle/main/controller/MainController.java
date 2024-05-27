@@ -22,14 +22,8 @@ public class MainController {
 	
 	public static String url = "main";
 
-	@RequestMapping(value = "/", method = RequestMethod.GET)
+	@RequestMapping(value = "/")
 	public String main() {
-		return url+"/main";
-	}
-	
-	@RequestMapping(value = "/", method = RequestMethod.POST)
-	public @ResponseBody String mainPost() {
-		log.info("권한 등록");
 		return url+"/main";
 	}
 	

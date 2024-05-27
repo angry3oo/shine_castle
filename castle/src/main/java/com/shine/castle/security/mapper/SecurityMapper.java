@@ -1,9 +1,10 @@
 package com.shine.castle.security.mapper;
 
 import org.apache.ibatis.annotations.Mapper;
-import org.springframework.security.core.userdetails.UserDetails;
+
+import com.shine.castle.security.vo.UserVo;
 
 @Mapper
 public interface SecurityMapper {
-	public UserDetails findUserDetails(String userId);
+	public UserVo findUserDetails(String userId);
 }

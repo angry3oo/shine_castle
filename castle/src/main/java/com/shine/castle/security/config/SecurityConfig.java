@@ -5,6 +5,8 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.core.annotation.Order;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.csrf.CsrfTokenRepository;
 import org.springframework.security.web.csrf.HttpSessionCsrfTokenRepository;
@@ -15,6 +17,10 @@ import org.springframework.security.web.csrf.HttpSessionCsrfTokenRepository;
 @EnableWebSecurity
 public class SecurityConfig {
 
+	@Bean
+	public PasswordEncoder getPasswordEncoder() {
+		return new BCryptPasswordEncoder();
+	}
 	/**
 	 * 
 	 * login url Security Handler
@@ -51,6 +57,7 @@ public class SecurityConfig {
 		.loginProcessingUrl("/login/auth")
 		.usernameParameter("userId")
 		.passwordParameter("passWord")
+		.successForwardUrl("/")
 		;
 		
 		
@@ -76,5 +83,4 @@ public class SecurityConfig {
         repository.setSessionAttributeName("CSRF_TOKEN");
         return repository;
     }
-	
 }
