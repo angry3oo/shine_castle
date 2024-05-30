@@ -1,0 +1,18 @@
+CREATE TABLE USER_001T 
+( 
+    USER_ID       VARCHAR2(255)	NOT NULL PRIMARY KEY, -- 유저 ID
+    USER_PASS_WORD VARCHAR2(255) NOT NULL, -- 유저 비밀번호
+    USER_NAME    VARCHAR2(255) NOT NULL, -- 유저 이
+    USER_ROLE    VARCHAR2(255), -- 유저 권한(admin)
+    USER_RGS_DATE    DATE, -- 유저 생성일 
+    USER_UPD_DATE    DATE -- 유저 수정일
+    USER_MAIL   VARCHAR2(255), -- 유저 메일
+    USER_ADDRESS   VARCHAR2(255), -- 유저 주소
+    USER_PHONE_NUM VARCHAR2(255), -- 유저 휴대폰번호
+    USER_SEX VARCHAR2(255), -- 유저 성별
+    USER_BIRTH VARCHAR2(255), -- 유저 생일
+    USER_NON_EXPIRED VARCHAR2(1), -- 계정 만료 여부 (Y, N) Y가 만료 안됨, N 만료됨
+    USER_NON_LOCKED VARCHAR2(1), -- 계정 잠김 여부 (Y, N) Y가 안잠김, N 잠김
+    USER_NON_PASS_EXPIRED VARCHAR2(1), -- 비밀번호 만료 여부 (Y, N) Y가 만료 안됨, N 만료됨
+    USER_NON_ENABLED VARCHAR2(1) -- 계정 활성화 여부 (Y, N) Y가 활성화, N 비활성화
+);
