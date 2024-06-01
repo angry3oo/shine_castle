@@ -2,7 +2,7 @@ CREATE TABLE USER_001T
 ( 
     USER_ID       VARCHAR2(255)	NOT NULL PRIMARY KEY, -- 유저 ID
     USER_PASS_WORD VARCHAR2(255) NOT NULL, -- 유저 비밀번호
-    USER_NAME    VARCHAR2(255) NOT NULL, -- 유저 이
+    USER_NAME    VARCHAR2(255) NOT NULL, -- 유저 이름
     USER_ROLE    VARCHAR2(255), -- 유저 권한(admin)
     USER_RGS_DATE    DATE, -- 유저 생성일 
     USER_UPD_DATE    DATE -- 유저 수정일
