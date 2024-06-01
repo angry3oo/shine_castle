@@ -5,7 +5,7 @@ CREATE TABLE USER_001T
     USER_NAME    VARCHAR2(255) NOT NULL, -- 유저 이름
     USER_ROLE    VARCHAR2(255), -- 유저 권한(admin)
     USER_RGS_DATE    DATE, -- 유저 생성일 
-    USER_UPD_DATE    DATE -- 유저 수정일
+    USER_UPD_DATE    DATE, -- 유저 수정일
     USER_MAIL   VARCHAR2(255), -- 유저 메일
     USER_ADDRESS   VARCHAR2(255), -- 유저 주소
     USER_PHONE_NUM VARCHAR2(255), -- 유저 휴대폰번호
