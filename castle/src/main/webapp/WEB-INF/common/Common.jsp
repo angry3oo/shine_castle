@@ -7,15 +7,14 @@
 
 <!-- Jquery -->
 <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
-
+<!-- Vue -->
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 
 <!-- Common Tiles Css -->
 <link href="/css/tiles.css" rel="stylesheet" type="text/css">
 
 <!-- Common JavaScript -->
 <script type="text/javascript" src="/js/common.js"></script>
-
-
 
 <!-- BootStrap Css -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous"/>

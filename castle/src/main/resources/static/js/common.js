@@ -67,7 +67,5 @@ function formSubmit(that) {
 		form = that.closest('form');
 	}
 	$(form).append($('<input/>', {type: 'hidden', name: CSRF_TOKEN().param, value: CSRF_TOKEN().token }));
-	console.log(form);
-	debugger;
 	$(form).submit();
 }

@@ -11,7 +11,12 @@
 			<tiles:insertAttribute name="leftbar" />
 		</nav>
 		<main class="col-md-9 ms-sm-auto col-lg-9 px-md-1" style="overflow: auto">
-			<tiles:insertAttribute name="content" />
+			<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-2 pb-2 mb-3 border-bottom">
+				<h1 class="h2">소제목</h1>
+			</div>
+			<div id="c">
+				<tiles:insertAttribute name="content" />
+			</div>
 		</main>
 		<tiles:insertAttribute name="footer" />
 	</div>
