@@ -6,15 +6,20 @@
 	<select id="findUserDetails" resultType="UserVo">
 		SELECT 
 		    U.USER_ID,
-		    U.USER_PASS_WORD,
-		    U.USER_NAME,
-		    U.USER_ROLE,
-		    U.USER_RGS_DATE,
-		    U.USER_MAIL,
-		    U.USER_ADDRESS,
-		    U.USER_PHONE_NUM,
-		    U.USER_SEX,
-		    U.USER_BIRTH
+			U.USER_PASS_WORD,
+			U.USER_NAME,
+			U.USER_ROLE,
+			U.USER_RGS_DATE,
+			U.USER_UPD_DATE,
+			U.USER_MAIL,
+			U.USER_ADDRESS,
+			U.USER_PHONE_NUM,
+			U.USER_SEX,
+			U.USER_BIRTH,
+			U.USER_NON_EXPIRED,
+			U.USER_NON_LOCKED,
+			U.USER_NON_PASS_EXPIRED,
+			U.USER_NON_ENABLED
 		FROM USER_001T U
 		WHERE U.USER_ID = #{userId}
 	</select>

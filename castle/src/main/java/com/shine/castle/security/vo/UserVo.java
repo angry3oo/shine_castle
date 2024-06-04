@@ -21,13 +21,17 @@ public class UserVo implements UserDetails{
 	private String userName = "";
 	
 	//USER(일반유저), ADMIN(관리자)
-	private String userRole = "";
-	private String userMail = "";
-	private String userPhoneNum = "";
-	private String userAddress = "";
-	private String userSex = "";
-	private String userBirth = "";
-	private String userRgsDate = "";
+	private String userRole;
+	private String userMail;
+	private String userPhoneNum;
+	private String userAddress;
+	private String userSex;
+	private String userBirth;
+	private String userRgsDate;
+	private String userNonExpired;
+	private String userNonLocked;
+	private String userNonPassExpired;
+	private String userNonEnabled;
 	
 	
 	@Override
@@ -56,22 +60,26 @@ public class UserVo implements UserDetails{
 
 	@Override
 	public boolean isAccountNonExpired() {
-		return true;
+		return this.accountNon(userNonExpired);
 	}
 
 	@Override
 	public boolean isAccountNonLocked() {
-		return true;
+		return this.accountNon(userNonLocked);
 	}
 
 	@Override
 	public boolean isCredentialsNonExpired() {
-		return true;
+		return this.accountNon(userNonPassExpired);
 	}
 
 	@Override
 	public boolean isEnabled() {
-		return true;
+		return this.accountNon(userNonEnabled);
+	}
+	
+	public boolean accountNon(String non) {
+		return non != null && non.equals("Y") ? true : false;
 	}
 
 }
