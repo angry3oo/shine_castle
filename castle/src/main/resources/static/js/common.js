@@ -69,3 +69,26 @@ function formSubmit(that) {
 	$(form).append($('<input/>', {type: 'hidden', name: CSRF_TOKEN().param, value: CSRF_TOKEN().token }));
 	$(form).submit();
 }
+
+/**
+ * set Title
+ */
+function setTitle(title){
+	document.title = title;
+}
+
+/**
+ * set VueFile
+ */
+function setVueFile(contextPath, filePath){
+	var vuePath = '/js/vue/';
+	var script = $('<script>')
+		.attr('src', contextPath+vuePath+filePath+'.js');
+	$("head").append(script);
+}
+
+document.addEventListener("DOMContentLoaded", function() {
+    var common = document.getElementById('common');
+    setTitle(common.getAttribute('data-title'));
+    setVueFile(common.getAttribute('data-context'), common.getAttribute('data-path'));
+});
