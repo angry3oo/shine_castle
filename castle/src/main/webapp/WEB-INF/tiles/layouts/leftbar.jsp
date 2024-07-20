@@ -10,7 +10,7 @@
         <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#home-collapse" aria-expanded="true">
           Home
         </button>
-        <div class="collapse show" id="home-collapse">
+        <div class="collapse" id="home-collapse">
           <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
             <li><a href="#" class="link-dark rounded">Overview</a></li>
             <li><a href="#" class="link-dark rounded">Updates</a></li>
@@ -41,6 +41,16 @@
             <li><a href="#" class="link-dark rounded">Processed</a></li>
             <li><a href="#" class="link-dark rounded">Shipped</a></li>
             <li><a href="#" class="link-dark rounded">Returned</a></li>
+          </ul>
+        </div>
+      </li>
+      <li class="mb-1">
+        <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#exam-collapse" aria-expanded="true">
+          예제
+        </button>
+        <div class="collapse" id="exam-collapse">
+          <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+            <li><a href="/vue" class="link-dark rounded">vue 예제</a></li>
           </ul>
         </div>
       </li>

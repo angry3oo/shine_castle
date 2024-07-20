@@ -11,6 +11,8 @@ import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.csrf.CsrfTokenRepository;
 import org.springframework.security.web.csrf.HttpSessionCsrfTokenRepository;
 
+import com.shine.castle.config.SuccessLoginHandler;
+
 @Order(2)
 @SuppressWarnings("deprecation")
 @Configuration
@@ -57,7 +59,7 @@ public class SecurityConfig {
 		.loginProcessingUrl("/login/auth")
 		.usernameParameter("userId")
 		.passwordParameter("passWord")
-		.successForwardUrl("/")
+		.successHandler(new SuccessLoginHandler())
 		;
 		
 		

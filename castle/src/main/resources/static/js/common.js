@@ -89,6 +89,8 @@ function setVueFile(contextPath, filePath){
 
 document.addEventListener("DOMContentLoaded", function() {
     var common = document.getElementById('common');
-    setTitle(common.getAttribute('data-title'));
-    setVueFile(common.getAttribute('data-context'), common.getAttribute('data-path'));
+    if(common != null){
+	    setTitle(common.getAttribute('data-title'));
+	    setVueFile(common.getAttribute('data-context'), common.getAttribute('data-path'));
+	}
 });
