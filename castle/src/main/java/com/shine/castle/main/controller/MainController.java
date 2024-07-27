@@ -18,7 +18,8 @@ public class MainController {
 	public static String url = "main";
 
 	@RequestMapping(value = "/")
-	public String main() {
+	public String main(Model model) {
+		model.addAttribute("title", "Dashboard");
 		return url+"/main";
 	}
 	
