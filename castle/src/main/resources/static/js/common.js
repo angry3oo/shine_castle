@@ -90,13 +90,14 @@ function setVueFile(filePath){
  * vueFile Check
  */
 function fileCheck(url){
-	var vuePath = '/js/vue/'+url+'.js';
-	fetch(vuePath, { method: 'HEAD' })
+	console.log(window.location)
+	var jsPath = '/js/'+url+'.js';
+	fetch(jsPath, { method: 'HEAD' })
 		.then(response => {
 		    if (response.ok) {
-		        this.setVueFile(vuePath);
+		        this.setVueFile(jsPath);
 		    }else{
-				console.log('No Search Vue File');
+				console.log('No Search Js File');
 			} 
 		})
 }
