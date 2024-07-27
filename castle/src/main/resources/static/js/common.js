@@ -80,17 +80,31 @@ function setTitle(title){
 /**
  * set VueFile
  */
-function setVueFile(contextPath, filePath){
-	var vuePath = '/js/vue/';
+function setVueFile(filePath){
 	var script = $('<script>')
-		.attr('src', contextPath+vuePath+filePath+'.js');
+		.attr('src', filePath);
 	$("head").append(script);
+}
+
+/**
+ * vueFile Check
+ */
+function fileCheck(url){
+	var vuePath = '/js/vue/'+url+'.js';
+	fetch(vuePath, { method: 'HEAD' })
+		.then(response => {
+		    if (response.ok) {
+		        this.setVueFile(vuePath);
+		    }else{
+				console.log('No Search Vue File');
+			} 
+		})
 }
 
 document.addEventListener("DOMContentLoaded", function() {
     var common = document.getElementById('common');
     if(common != null){
 	    setTitle(common.getAttribute('data-title'));
-	    setVueFile(common.getAttribute('data-context'), common.getAttribute('data-path'));
+	    fileCheck(common.getAttribute('data-path'));
 	}
 });

@@ -6,8 +6,7 @@
 	<body>
 		<div id="common" 
 			data-title="<tiles:getAsString name = "title"/>" 
-			data-path="<tiles:getAsString name = "filePath"/>"
-			data-context="${pageContext.request.contextPath}">
+			data-path="<tiles:getAsString name = "filePath"/>">
 		</div>
 		<%-- <input type="hidden" name="${csrfToken.parameterName}" value="${csrfToken.token}" /> --%>
 		<tiles:insertAttribute name="header" />
