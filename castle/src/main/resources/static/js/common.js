@@ -90,7 +90,6 @@ function setVueFile(filePath){
  * vueFile Check
  */
 function fileCheck(url){
-	console.log(window.location)
 	var jsPath = '/js/'+url+'.js';
 	fetch(jsPath, { method: 'HEAD' })
 		.then(response => {
