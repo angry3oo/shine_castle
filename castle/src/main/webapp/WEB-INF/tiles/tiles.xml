@@ -8,7 +8,7 @@
 		<put-attribute name="footer" value="/WEB-INF/tiles/layouts/footer.jsp" />
 		<put-attribute name="head" value="/WEB-INF/tiles/layouts/headToken.jsp" />
 	</definition>
-	<definition name="login-layout" template="/WEB-INF/views/login/login.jsp" >
+	<definition name="login-layout" template="/WEB-INF/tiles/layouts/loginTemplate.jsp" >
 		<put-attribute name="head" value="/WEB-INF/tiles/layouts/headToken.jsp" />
 	</definition>
 	
@@ -16,7 +16,9 @@
 		<put-attribute name="content" value="/WEB-INF/views/{1}.jsp"></put-attribute>
 	</definition> -->
 	
-    <definition name="login/*" extends="login-layout" />
+    <definition name="login/*" extends="login-layout" >
+    	<put-attribute name="body" value="/WEB-INF/views/login/{1}.jsp" />
+    </definition>
 	
 	<definition name="*/*" extends="template">
 		<put-attribute name="content" value="/WEB-INF/views/{1}/{2}.jsp" />

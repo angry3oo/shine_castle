@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-	
 <body class="text-center login">
 	<div id="container" class="container">
 		<!-- content -->
@@ -52,7 +51,8 @@
 											찾기</a></li>
 									<li><a target="_blank" href="" class="find_text">아이디
 											찾기</a></li>
-									<li><a target="_blank" href="/login/memberShip" class="find_text">회원가입</a></li>
+									<li><a href="/login/memberShip"
+										class="find_text">회원가입</a></li>
 								</ul>
 							</div>
 						</form>
