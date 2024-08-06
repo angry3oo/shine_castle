@@ -18,6 +18,7 @@
 	
     <definition name="login/*" extends="login-layout" >
     	<put-attribute name="body" value="/WEB-INF/views/login/{1}.jsp" />
+		<put-attribute name="filePath" value="login/{1}" />
     </definition>
 	
 	<definition name="*/*" extends="template">

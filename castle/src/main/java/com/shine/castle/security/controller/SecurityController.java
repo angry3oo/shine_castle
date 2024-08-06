@@ -2,6 +2,7 @@ package com.shine.castle.security.controller;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -17,12 +18,14 @@ public class SecurityController {
 	public static String url = "login";
 
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
-	public String login() {
+	public String login(Model model) {
+		model.addAttribute("title", "로그인");
 		return url+"/login";
 	}
 	
 	@RequestMapping(value = "/login/memberShip", method = RequestMethod.GET)
-	public String memberShip() {
+	public String memberShip(Model model) {
+		model.addAttribute("title", "회원가입");
 		return url+"/memberShip";
 	}
 }

@@ -1,19 +1,24 @@
 new Vue({
-  el: '#c',
+  el: '#memberShip',
   data() { 
   	return {
   		data : 1
   	}
   },
   created: function () {
-  	console.log('created');
-  	console.log(window);
+  	
   },
   mounted: function () {
 	console.log('mounted');
   },
   methods: {
-   
+	findAdress : function(){
+		new daum.Postcode({
+        oncomplete: function(data) {
+        	console.log(data);
+        }
+    	}).open();
+	}
   },
   computed: {
 	  

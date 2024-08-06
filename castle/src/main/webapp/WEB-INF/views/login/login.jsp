@@ -1,11 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<body class="text-center login">
-<div class="container" id="container">
-  <div class="content">
-	<div class="login_wrap">
-		<ul class="panel_wrap">
-			<li class="panel_item" style="display: block;">
+<div class="text-center login">
+	<div class="container" id="container">
+	  <div class="content">
+		<div class="login_wrap">
+			<ul class="panel_wrap">
+				<li class="panel_item" style="display: block;">
 				<form action="/login/auth" method="POST">
 					<div class="panel_inner" role="tabpanel" aria-controls="loinid">
 						<svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
@@ -43,30 +43,30 @@
 						<div class="btn_login_wrap">
 							<button type="submit" class="btn_login btn-primary btn btn-lg"
 								onclick="formSubmit(this)">
-								<span class="btn_text">로그인</span>
-							</button>
+									<span class="btn_text">로그인</span>
+								</button>
+							</div>
+							<ul class="find_wrap">
+								<li><a target="_blank" href="" class="find_text">비밀번호
+										찾기</a></li>
+								<li><a target="_blank" href="" class="find_text">아이디
+										찾기</a></li>
+								<li><a href="/login/memberShip"
+									class="find_text">회원가입</a></li>
+							</ul>
 						</div>
-						<ul class="find_wrap">
-							<li><a target="_blank" href="" class="find_text">비밀번호
-									찾기</a></li>
-							<li><a target="_blank" href="" class="find_text">아이디
-									찾기</a></li>
-							<li><a href="/login/memberShip"
-								class="find_text">회원가입</a></li>
-						</ul>
-					</div>
-				</form>
-			</li>
-		</ul>
+					</form>
+				</li>
+			</ul>
+		</div>
+	</div>
+	  <div class="overlay-container">
+	    <div class="overlay">
+	      <div class="overlay-panel overlay-right">
+	        <h1>Hello, Friend!</h1>
+	        <p>Enter your personal details and start journey with us</p>
+	      </div>
+	    </div>
+	  </div>
 	</div>
 </div>
-  <div class="overlay-container">
-    <div class="overlay">
-      <div class="overlay-panel overlay-right">
-        <h1>Hello, Friend!</h1>
-        <p>Enter your personal details and start journey with us</p>
-      </div>
-    </div>
-  </div>
-</div>
-</body>

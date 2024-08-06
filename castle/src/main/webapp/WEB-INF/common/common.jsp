@@ -10,6 +10,9 @@
 <!-- Vue -->
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 
+<!--주소 API-->
+<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+
 <!-- Common Tiles Css -->
 <link href="/css/tiles.css" rel="stylesheet" type="text/css">
 

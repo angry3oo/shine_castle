@@ -4185,3 +4185,18 @@ body.cafe24 .content.start_page .cafe24_content {
   right: 0;
   transform: translateX(0);
 }
+
+.memberShip {
+	all: unset; 
+	display: block;
+    unicode-bidi: isolate;
+}
+
+.memberShip .rowMemberShip{
+	margin: 0 auto;
+}
+
+.addrClass {
+	float: right;
+	margin-bottom: 8px;
+}

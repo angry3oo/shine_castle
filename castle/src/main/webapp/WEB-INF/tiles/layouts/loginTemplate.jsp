@@ -4,5 +4,11 @@
 <!DOCTYPE html>
 <html>
 	<tiles:insertAttribute name="head" />
-	<tiles:insertAttribute name="body" />
+	<body>
+		<div id="common" 
+			data-title="${title}" 
+			data-path="<tiles:getAsString name = "filePath"/>">
+		</div>
+		<tiles:insertAttribute name="body" />
+	</body>
 </html>
