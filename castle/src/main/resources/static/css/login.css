@@ -4200,3 +4200,12 @@ body.cafe24 .content.start_page .cafe24_content {
 	float: right;
 	margin-bottom: 8px;
 }
+
+.btnLeft40 {
+	width: 40%;
+}
+
+.btnRight40 {
+	float: right;
+	width: 40%;
+}
