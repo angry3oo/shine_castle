@@ -98,7 +98,7 @@
           
           <hr class="my-4">
           <button class="btn btn-primary btn-lg btnLeft40" type="submit">가입하기</button>
-          <button class="btn btn-primary btn-dark btn-lg btnRight40" type="submit">돌아가기</button>
+          <a class="btn btn-primary btn-dark btn-lg btnRight40" type="submit" href="/login">돌아가기</a>
         </form>
       </div>
     </div>
