@@ -2,6 +2,7 @@ new Vue({
   el: '#memberShip',
   data() { 
   	return {
+		id : '',
   		addressPackage : {},
   		address : '', //주소
   		zonecode : '', //우편번호
@@ -34,6 +35,12 @@ new Vue({
 	        	that.addressPackage = data;
 	        }
     	}).open();
+	},
+	idCheck : function(){
+		var param = {
+			userId : this.id
+		}
+		commonAjax('POST', '/login/idCheck', param)
 	}
   }
 })

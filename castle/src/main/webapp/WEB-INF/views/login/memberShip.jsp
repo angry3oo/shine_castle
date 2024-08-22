@@ -13,8 +13,8 @@
           	<div class="col-12">
               <label for="id" class="form-label">아이디</label>
 		         <div class="input-group">
-		           <input type="text" class="form-control" placeholder="아이디 입력 (6~20자)">
-		           <button type="submit" class="btn btn-warning">중복확인</button>
+		           <input type="text" class="form-control" placeholder="아이디 입력 (6~20자)" v-model="id">
+		           <button type="button" class="btn btn-warning" @click="idCheck">중복확인</button>
 		         </div>
             </div>
             <div class="col-12">

@@ -24,4 +24,11 @@
 		WHERE U.USER_ID = #{userId}
 	</select>
 	
+	<select id="idCheck" resultType="CamelMap">
+		SELECT 
+			COUNT(*) AS COUNT
+		FROM USER_001T U
+		WHERE U.USER_ID = #{userId}
+	</select>
+	
 </mapper>

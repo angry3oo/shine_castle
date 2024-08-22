@@ -7,6 +7,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import com.shine.castle.config.CamelMap;
 import com.shine.castle.security.mapper.SecurityMapper;
 import com.shine.castle.security.vo.UserVo;
 
@@ -32,6 +33,16 @@ public class SecurityService implements UserDetailsService {
 //            // 로그인 실패시 예외 던지기
 //        }
 		return user;
+	}
+	
+	public Boolean idCheck(UserVo userVo) {
+		CamelMap result = securityMapper.idCheck(userVo);
+		int count = Integer.parseInt(String.valueOf(result.get("count")));
+		if(count != 0) {
+			return false;
+		}else {
+			return true;
+		}
 	}
 
 }

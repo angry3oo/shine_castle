@@ -16,7 +16,8 @@ function commonAjax(type, url, data){
 	$.ajax({
 		type: type,
 		url : url,			 
-		data: data,
+		data: JSON.stringify(data),
+		contentType: 'application/json; charset=utf-8',
 		beforeSend: function (xhr) {
 	      xhr.setRequestHeader(CSRF_TOKEN().header, CSRF_TOKEN().token);
 	    }, 
