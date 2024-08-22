@@ -31,7 +31,7 @@
 						</div>
 						<div class="input-group" style="margin-top: 20px;">
 							<input type="text" class="form-control" placeholder="OTP">
-							<button type="submit" class="btn btn-secondary">OTP 전송</button>
+							<button type="button" class="btn btn-secondary">OTP 전송</button>
 						</div>
 						<div class="login_keep_wrap">
 							<div class="keep_check" style="float: right;">

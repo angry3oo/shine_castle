@@ -2,28 +2,38 @@ new Vue({
   el: '#memberShip',
   data() { 
   	return {
-  		data : 1
+  		addressPackage : {},
+  		address : '', //주소
+  		zonecode : '', //우편번호
+  		buildingName : '' //빌딩이름
   	}
   },
   created: function () {
   	
   },
   mounted: function () {
-	console.log('mounted');
-  },
-  methods: {
-	findAdress : function(){
-		new daum.Postcode({
-        oncomplete: function(data) {
-        	console.log(data);
-        }
-    	}).open();
-	}
+	
   },
   computed: {
 	  
   },
   watch: {
-	  
+	addressPackage : {
+		handler(newValue, oldValue) {
+			console.log(newValue);
+			console.log(oldValue);
+	    },
+	    deep: true
+	  }
+  },
+  methods: {
+	findAdress : function(){
+		var that = this;
+		new daum.Postcode({
+	        oncomplete: function(data) {
+	        	that.addressPackage = data;
+	        }
+    	}).open();
+	}
   }
 })
