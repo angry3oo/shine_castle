@@ -2,11 +2,14 @@ new Vue({
   el: '#memberShip',
   data() { 
   	return {
-		id : '',
-  		addressPackage : {},
-  		address : '', //주소
-  		zonecode : '', //우편번호
-  		buildingName : '' //빌딩이름
+		checkId : '',
+		memberPackage : {
+			id : '',
+			address : '', //주소
+			zonecode : '', //우편번호
+			buildingName : '' //빌딩이름
+		},
+  		addressPackage : {}
   	}
   },
   created: function () {
@@ -38,9 +41,17 @@ new Vue({
 	},
 	idCheck : function(){
 		var param = {
-			userId : this.id
+			userId : this.memberPackage.id
 		}
-		commonAjax('POST', '/login/idCheck', param)
+		commonAjax('POST', '/login/idCheck', param, this.idCheck_callBack);
+	},
+	idCheck_callBack : function(result){
+		if(result){
+			addClass('id', 'form-control is-valid');
+			this.checkId = this.memberPackage.id;
+		}else{
+			addClass('id', 'form-control is-invalid');
+		}
 	}
   }
 })

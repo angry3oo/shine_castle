@@ -12,7 +12,7 @@ function CSRF_TOKEN(){
 /**
  * common ajax
  */
-function commonAjax(type, url, data){
+function commonAjax(type, url, data, callBack){
 	$.ajax({
 		type: type,
 		url : url,			 
@@ -26,6 +26,7 @@ function commonAjax(type, url, data){
 	 		 console.log('=========commonAjax==========');
 			 console.log(data);
 			 console.log('=========commonAjax==========');
+			 callBack(data);
 		},
 		error: function (e) {
 			
@@ -100,6 +101,14 @@ function fileCheck(url){
 				console.log('No Search Js File');
 			} 
 		})
+}
+
+/**
+ * element class add
+ */
+function addClass(id, csName){
+	var el = document.getElementById(id);
+	el.className = csName;
 }
 
 document.addEventListener("DOMContentLoaded", function() {

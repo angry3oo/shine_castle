@@ -13,8 +13,14 @@
           	<div class="col-12">
               <label for="id" class="form-label">아이디</label>
 		         <div class="input-group">
-		           <input type="text" class="form-control" placeholder="아이디 입력 (6~20자)" v-model="id">
+		           <input type="text" class="form-control" id = "id" placeholder="아이디 입력 (6~20자)" v-model="memberPackage.id">
 		           <button type="button" class="btn btn-warning" @click="idCheck">중복확인</button>
+		           		<div class="valid-feedback">
+							사용가능한 ID 입니다.
+						</div>
+		                <div class="invalid-feedback">
+					        이미 존재하는 ID 입니다.
+					    </div>
 		         </div>
             </div>
             <div class="col-12">
