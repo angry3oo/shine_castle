@@ -3,20 +3,36 @@ new Vue({
   data() { 
   	return {
 		checkId : '',
+		date : {
+			year : [],
+			month : [],
+			day : [],
+			selectorYear : new Date().getFullYear(),
+			selectorMonth : new Date().getMonth()+1,
+			selectorDay : new Date().getDate()
+		},
 		memberPackage : {
 			id : '',
+			passWord : '',
+			passWordCheck : '',
+			userName : '',
+			birth : '',
+			email : '',
+			doMain : '',
+			phoneNumber : '',
 			address : '', //주소
 			zonecode : '', //우편번호
-			buildingName : '' //빌딩이름
+			buildingName : '', //빌딩이름
+			roomNumber : '' //호수
 		},
   		addressPackage : {}
   	}
   },
   created: function () {
-  	
+  	console.log(new Date().getMonth())
   },
   mounted: function () {
-	
+	this.birthDate();
   },
   computed: {
 	  
@@ -36,6 +52,9 @@ new Vue({
 		new daum.Postcode({
 	        oncomplete: function(data) {
 	        	that.addressPackage = data;
+	        	that.memberPackage.address = data.address;
+	        	that.memberPackage.zonecode = data.zonecode;
+	        	that.memberPackage.buildingName = data.buildingName;
 	        }
     	}).open();
 	},
@@ -52,6 +71,34 @@ new Vue({
 		}else{
 			addClass('id', 'form-control is-invalid');
 		}
+	},
+	birthDate : function(){
+		this.birthYearDate();
+		this.birthMonthDate();
+		this.birthDayDate();
+	},
+	birthYearDate : function(){
+		var date = new Date();
+		var todayYear = date.getFullYear();
+		for(var i = 1950; i < todayYear+1; i++){
+			this.date.year.push(i);
+		}
+	},
+	birthMonthDate : function(){
+		for(var i = 1; i < 13; i++){
+			this.date.month.push(i);
+		}
+	},
+	birthDayDate : function(){
+		this.date.day = [];
+		var thatMonthDay = new Date(this.date.selectorYear, this.date.selectorMonth, 0).getDate();
+		for(var i = 1; i < thatMonthDay; i++){
+			this.date.day.push(i);
+		}
+		if(thatMonthDay < this.date.selectorDay){
+			this.date.selectorDay = 1;
+		}
 	}
+	
   }
 })

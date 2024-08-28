@@ -25,38 +25,60 @@
             </div>
             <div class="col-12">
               <label for="passWord" class="form-label">비밀번호</label>
-              <input type="text" class="form-control" id="passWord" placeholder="비밀번호 입력 (문자, 숫자, 특수문자 포함 8~20자)" value="" required>
+              <input type="text" class="form-control" placeholder="비밀번호 입력 (문자, 숫자, 특수문자 포함 8~20자)" v-model="memberPackage.passWord" required>
             </div>
             
             <div class="col-12">
               <label for="passWord" class="form-label">비밀번호 확인</label>
-              <input type="text" class="form-control" id="passWord" placeholder="비밀번호를 다시 입력해주세요.">
+              <input type="text" class="form-control" placeholder="비밀번호를 다시 입력해주세요." v-model="memberPackage.passWordCheck">
             </div>
 
-            <div class="col-sm-4">
+            <div class="col-sm-3">
               <label for="userName" class="form-label">이름</label>
-              <input type="text" class="form-control" id="userName" placeholder="이름" value="">
+              <input type="text" class="form-control" placeholder="이름" v-model="memberPackage.userName">
             </div>
             
-            <div class="col-sm-4">
-              <label for="userbirth" class="form-label">생년월일</label>
-              <input type="text" class="form-control" id="userbirth" placeholder="생년월일" value="">
-            </div>
-            
-            <div class="col-sm-4">
+            <div class="col-sm-2">
               <label for="sex" class="form-label">성별</label>
               <select class="form-select">
                 <option value="">남</option>
                 <option>여</option>
               </select>
             </div>
+            
+             <div class="col-sm-7">
+              	<label for="userbirth" class="form-label">생년월일</label>
+              	<div class="row">
+	              	<div class="col-sm-4">
+	              		<select class="form-select" v-model="date.selectorYear">
+							<option v-for="year in date.year" :value="year">
+						    	{{ year }} 년
+						    </option>
+						</select>
+	              	</div>
+	              	<div class="col-sm-4">
+	              		<select class="form-select" @change="birthDayDate" v-model="date.selectorMonth">
+							<option v-for="month in date.month" :value="month">
+						    	{{ month }} 월
+						    </option>
+						</select>
+	              	</div>
+	              	<div class="col-sm-4">
+	              		<select class="form-select" v-model="date.selectorDay">
+							<option v-for="day in date.day" :value="day">
+						    	{{ day }} 일
+						    </option>
+						</select>
+	              	</div>
+              	</div>
+            </div>
 
             <div class="col-8">
               <label for="username" class="form-label">이메일</label>
               <div class="input-group has-validation">
-              	<input type="email" class="form-control" id="email" placeholder="이메일">
+              	<input type="email" class="form-control" placeholder="이메일" v-model="memberPackage.email">
                 <span class="input-group-text">@</span>
-                <input type="text" class="form-control" id="doMain" placeholder="직접입력">
+                <input type="text" class="form-control" placeholder="직접입력" v-model="memberPackage.doMain">
               <div></div>
               </div>
             </div>
@@ -72,23 +94,23 @@
             <div class="col-12">
               <label for="address" class="form-label">주소</label>
               <button type="button" class="btn btn-outline-info btn-sm addrClass" @click="findAdress">주소찾기</button>
-              <input type="text" class="form-control" id="address" placeholder="도로명 주소" required>
+              <input type="text" class="form-control" placeholder="도로명 주소" v-model="memberPackage.address">
             </div>
 
 			<div class="col-sm-6">
               <label for="userbirth" class="form-label">나머지 주소</label>
-              <input type="text" class="form-control" placeholder="동, 호수, 호">
+              <input type="text" class="form-control" placeholder="동, 호수, 호" v-model="memberPackage.roomNumber">
             </div>
             
             <div class="col-sm-6">
               <label for="userbirth" class="form-label">우편번호</label>
-              <input type="text" class="form-control" placeholder="우편번호">
+              <input type="text" class="form-control" placeholder="우편번호" v-model="memberPackage.zonecode">
             </div>
 			
 			<div class="col-sm-8">
               <label for="phoneNum" class="form-label">휴대폰 번호</label>
 		         <div class="input-group">
-		           <input type="text" class="form-control" placeholder="휴대폰 번호">
+		           <input type="text" class="form-control" placeholder="휴대폰 번호" v-model="memberPackage.phoneNumber">
 		           <button type="submit" class="btn btn-secondary">인증번호 요청</button>
 		         </div>
             </div>
