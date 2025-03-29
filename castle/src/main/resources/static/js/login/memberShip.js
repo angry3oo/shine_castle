@@ -98,7 +98,16 @@ new Vue({
 		if(thatMonthDay < this.date.selectorDay){
 			this.date.selectorDay = 1;
 		}
+	},
+	certificationCall : function(){
+		var param = {
+			toEmail : this.memberPackage.email,
+			toDoMain : this.memberPackage.doMain
+		}
+		commonAjax('POST', '/login/emailCheck', param, this.emailCheck_callBack);
+	},
+	emailCheck_callBack : function(){
+		alert(1);
 	}
-	
   }
 })

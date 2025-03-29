@@ -15,10 +15,9 @@ import lombok.ToString;
 @ToString
 public class UserVo implements UserDetails{
 
-	private String userId = "";
-	private String userPassWord = "";
-	
-	private String userName = "";
+	private String userId;
+	private String userPassWord;
+	private String userName;
 	
 	//USER(일반유저), ADMIN(관리자)
 	private String userRole;

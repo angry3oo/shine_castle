@@ -9,7 +9,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.shine.castle.config.SenderMail;
 import com.shine.castle.security.service.SecurityService;
+import com.shine.castle.security.vo.MailInfoVo;
 import com.shine.castle.security.vo.UserVo;
 
 import lombok.extern.slf4j.Slf4j;
@@ -19,12 +21,18 @@ import lombok.extern.slf4j.Slf4j;
 public class SecurityController {
 	
 	@Value("${sms.send.message.yn}")
-	private String message ;
+	private String message;
 	
 	public static String url = "login";
 	
 	@Autowired
 	private SecurityService securityService;
+	
+	@Autowired
+	private SenderMail senderMail;
+	
+	@Value("${mail_user}")
+	private String from;
 
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public String login(Model model) {
@@ -41,5 +49,15 @@ public class SecurityController {
 	@RequestMapping(value = "/login/idCheck", method = RequestMethod.POST)
 	public @ResponseBody Boolean memberShip(@RequestBody UserVo userVo) {
 		return securityService.idCheck(userVo);
+	}
+
+	@RequestMapping(value = "/login/emailCheck", method = RequestMethod.POST)
+	public @ResponseBody Boolean emailCheck(@RequestBody MailInfoVo mailInfoVo) {
+		mailInfoVo.setFrom(from);
+		mailInfoVo.setSubject("title");
+		mailInfoVo.setText("이메일 테스트");
+		log.info(mailInfoVo.toString());
+		senderMail.simpleCreateMessage(mailInfoVo);
+		return false;
 	}
 }

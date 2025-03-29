@@ -33,7 +33,7 @@
               <input type="text" class="form-control" placeholder="비밀번호를 다시 입력해주세요." v-model="memberPackage.passWordCheck">
             </div>
 
-            <div class="col-sm-3">
+            <div class="col-sm-4">
               <label for="userName" class="form-label">이름</label>
               <input type="text" class="form-control" placeholder="이름" v-model="memberPackage.userName">
             </div>
@@ -44,6 +44,41 @@
                 <option value="">남</option>
                 <option>여</option>
               </select>
+            </div>
+            
+            <div class="col-sm-6">
+              <label for="phoneNum" class="form-label">휴대폰 번호</label>
+		         <div class="input-group">
+		           <input type="text" class="form-control" placeholder="휴대폰 번호" v-model="memberPackage.phoneNumber">
+		         </div>
+            </div>
+            
+            <div class="col-9">
+              <label for="username" class="form-label">이메일</label>
+              <div class="input-group has-validation">
+              	<input type="email" class="form-control" placeholder="이메일" v-model="memberPackage.email">
+                <span class="input-group-text">@</span>
+                <input type="text" class="form-control" placeholder="직접입력" v-model="memberPackage.doMain">
+                <button type="submit" class="btn btn-secondary" @click="certificationCall">인증번호 요청</button>
+              <div></div>
+              </div>
+            </div>
+            
+            <div class="col-sm-3">
+              <label for="doMain" class="form-label">도메인</label>
+              <select class="form-select">
+                <option value="">선택</option>
+                <option>naver.com</option>
+                <option>gmail.com</option>
+              </select>
+            </div>
+            
+            <div class="col-sm-5">
+              <label for="phoneNum" class="form-label">이메일 인증번호</label>
+              <div class="input-group">
+              	<input type="text" class="form-control" id="phoneNum" placeholder="인증번호">
+              	<button type="button" class="btn btn-sm btn-dark">인증확인</button>
+              </div>
             </div>
             
              <div class="col-sm-7">
@@ -73,24 +108,6 @@
               	</div>
             </div>
 
-            <div class="col-8">
-              <label for="username" class="form-label">이메일</label>
-              <div class="input-group has-validation">
-              	<input type="email" class="form-control" placeholder="이메일" v-model="memberPackage.email">
-                <span class="input-group-text">@</span>
-                <input type="text" class="form-control" placeholder="직접입력" v-model="memberPackage.doMain">
-              <div></div>
-              </div>
-            </div>
-            <div class="col-sm-4">
-              <label for="doMain" class="form-label">도메인</label>
-              <select class="form-select">
-                <option value="">선택</option>
-                <option>naver.com</option>
-                <option>gmail.com</option>
-              </select>
-            </div>
-
             <div class="col-12">
               <label for="address" class="form-label">주소</label>
               <button type="button" class="btn btn-outline-info btn-sm addrClass" @click="findAdress">주소찾기</button>
@@ -98,30 +115,15 @@
             </div>
 
 			<div class="col-sm-6">
+              <label for="userbirth" class="form-label">우편번호</label>
+              <input type="text" class="form-control" placeholder="우편번호" v-model="memberPackage.zonecode">
+            </div>
+
+			<div class="col-sm-6">
               <label for="userbirth" class="form-label">나머지 주소</label>
               <input type="text" class="form-control" placeholder="동, 호수, 호" v-model="memberPackage.roomNumber">
             </div>
             
-            <div class="col-sm-6">
-              <label for="userbirth" class="form-label">우편번호</label>
-              <input type="text" class="form-control" placeholder="우편번호" v-model="memberPackage.zonecode">
-            </div>
-			
-			<div class="col-sm-8">
-              <label for="phoneNum" class="form-label">휴대폰 번호</label>
-		         <div class="input-group">
-		           <input type="text" class="form-control" placeholder="휴대폰 번호" v-model="memberPackage.phoneNumber">
-		           <button type="submit" class="btn btn-secondary">인증번호 요청</button>
-		         </div>
-            </div>
-			
-            <div class="col-sm-4">
-              <label for="phoneNum" class="form-label">인증번호</label>
-              <div class="input-group">
-              	<input type="text" class="form-control" id="phoneNum" placeholder="인증번호">
-              	<button type="button" class="btn btn-sm btn-dark">인증확인</button>
-              </div>
-            </div>
           </div>
           
           <hr class="my-4">
