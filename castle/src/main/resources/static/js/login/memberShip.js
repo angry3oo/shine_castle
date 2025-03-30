@@ -29,7 +29,7 @@ new Vue({
   	}
   },
   created: function () {
-  	console.log(new Date().getMonth())
+	
   },
   mounted: function () {
 	this.birthDate();
@@ -40,8 +40,7 @@ new Vue({
   watch: {
 	addressPackage : {
 		handler(newValue, oldValue) {
-			console.log(newValue);
-			console.log(oldValue);
+			
 	    },
 	    deep: true
 	  }

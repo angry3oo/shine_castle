@@ -24,9 +24,6 @@ function commonAjax(type, url, data, callBack){
 	    }, 
 	 	dataType: "json",
 	 	success: function (data) { 
-	 		 console.log('=========commonAjax==========');
-			 console.log(data);
-			 console.log('=========commonAjax==========');
 			 if(!that.isEmpty(callBack)){
 				 callBack(data);
 			 }
