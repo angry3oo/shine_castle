@@ -111,6 +111,23 @@ function addClass(id, csName){
 	el.className = csName;
 }
 
+/**
+ * str null check
+ */
+function isStrEmpty(str){
+	if(str != null && str.trim() != "" && str != undefined){
+		return false;
+	}
+	return true;
+}
+
+/**
+ * vue vm foucs
+ */
+function vmFoucs(vm){
+	vm.focus();
+}
+
 document.addEventListener("DOMContentLoaded", function() {
     var common = document.getElementById('common');
     if(common != null){

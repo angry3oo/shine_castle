@@ -56,10 +56,10 @@
             <div class="col-9">
               <label for="username" class="form-label">이메일</label>
               <div class="input-group has-validation">
-              	<input type="email" class="form-control" placeholder="이메일" v-model="memberPackage.email">
+              	<input type="email" class="form-control" placeholder="이메일" v-model="memberPackage.email" ref="email">
                 <span class="input-group-text">@</span>
-                <input type="text" class="form-control" placeholder="직접입력" v-model="memberPackage.doMain">
-                <button type="submit" class="btn btn-secondary" @click="certificationCall">인증번호 요청</button>
+                <input type="text" class="form-control" placeholder="직접입력" v-model="memberPackage.doMain" ref="doMain">
+                <button type="button" class="btn btn-secondary" @click="certificationCall">인증번호 요청</button>
               <div></div>
               </div>
             </div>

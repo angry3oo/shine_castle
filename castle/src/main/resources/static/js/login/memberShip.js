@@ -100,11 +100,21 @@ new Vue({
 		}
 	},
 	certificationCall : function(){
-		var param = {
-			toEmail : this.memberPackage.email,
-			toDoMain : this.memberPackage.doMain
+		if(isStrEmpty(this.memberPackage.email)){
+			alert("이메일을 입력해주세요.");
+			vmFoucs(this.$refs.email);
+		}else if(isStrEmpty(this.memberPackage.doMain)){
+			alert("도메인을 입력해주세요.");
+			vmFoucs(this.$refs.doMain);
+		}else{
+			var param = {
+				toEmail : this.memberPackage.email,
+				toDoMain : this.memberPackage.doMain
+			}
+			commonAjax('POST', '/login/emailCheck', param, this.emailCheck_callBack);
 		}
-		commonAjax('POST', '/login/emailCheck', param, this.emailCheck_callBack);
+		
+
 	},
 	emailCheck_callBack : function(){
 		alert(1);
