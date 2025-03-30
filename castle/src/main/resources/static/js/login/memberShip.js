@@ -59,13 +59,14 @@ new Vue({
     	}).open();
 	},
 	idCheck : function(){
+		//아이디 벨리데이션
 		var param = {
 			userId : this.memberPackage.id
 		}
 		commonAjax('POST', '/login/idCheck', param, this.idCheck_callBack);
 	},
 	idCheck_callBack : function(result){
-		if(result){
+		if(result === 0){
 			addClass('id', 'form-control is-valid');
 			this.checkId = this.memberPackage.id;
 		}else{
@@ -117,7 +118,7 @@ new Vue({
 
 	},
 	emailCheck_callBack : function(){
-		alert(1);
+	
 	}
   }
 })

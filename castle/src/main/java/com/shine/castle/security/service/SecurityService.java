@@ -35,14 +35,8 @@ public class SecurityService implements UserDetailsService {
 		return user;
 	}
 	
-	public Boolean idCheck(UserVo userVo) {
-		CamelMap result = securityMapper.idCheck(userVo);
-		int count = Integer.parseInt(String.valueOf(result.get("count")));
-		if(count != 0) {
-			return false;
-		}else {
-			return true;
-		}
+	public int idCheck(UserVo userVo) {
+		return securityMapper.idCheck(userVo);
 	}
 
 }

@@ -13,6 +13,7 @@ function CSRF_TOKEN(){
  * common ajax
  */
 function commonAjax(type, url, data, callBack){
+	var that = this;
 	$.ajax({
 		type: type,
 		url : url,			 
@@ -26,31 +27,9 @@ function commonAjax(type, url, data, callBack){
 	 		 console.log('=========commonAjax==========');
 			 console.log(data);
 			 console.log('=========commonAjax==========');
-			 callBack(data);
-		},
-		error: function (e) {
-			
-		}
-	 });
-}
-
-/**
- * common json ajax
- */
-function commonJsonAjax(type, url, data){
-	$.ajax({
-		type: type,
-		url : url,		 
-		data: JSON.stringify(data),
-		contentType: 'application/json; charset=utf-8',
-		beforeSend: function (xhr) {
-	    	xhr.setRequestHeader(CSRF_TOKEN().header, CSRF_TOKEN().token);
-	    }, 
-	 	dataType: "json",
-	 	success: function (data) {
-			 console.log('=========commonJsonAjax==========');
-			 console.log(data);
-			 console.log('=========commonJsonAjax==========');
+			 if(!that.isEmpty(callBack)){
+				 callBack(data);
+			 }
 		},
 		error: function (e) {
 			
@@ -116,6 +95,16 @@ function addClass(id, csName){
  */
 function isStrEmpty(str){
 	if(str != null && str.trim() != "" && str != undefined){
+		return false;
+	}
+	return true;
+}
+
+/**
+ * null check
+ */
+function isEmpty(e){
+	if(e != null && e != undefined && e != 'undefined'){
 		return false;
 	}
 	return true;

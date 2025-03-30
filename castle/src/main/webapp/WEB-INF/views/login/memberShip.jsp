@@ -19,7 +19,7 @@
 							사용가능한 ID 입니다.
 						</div>
 		                <div class="invalid-feedback">
-					        이미 존재하는 ID 입니다.
+					        사용할 수 없는 ID 입니다.
 					    </div>
 		         </div>
             </div>

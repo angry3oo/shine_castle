@@ -24,9 +24,9 @@
 		WHERE U.USER_ID = #{userId}
 	</select>
 	
-	<select id="idCheck" resultType="CamelMap">
+	<select id="idCheck" resultType="int">
 		SELECT 
-			COUNT(*) AS COUNT
+			COUNT(U.USER_ID) AS COUNT
 		FROM USER_001T U
 		WHERE U.USER_ID = #{userId}
 	</select>

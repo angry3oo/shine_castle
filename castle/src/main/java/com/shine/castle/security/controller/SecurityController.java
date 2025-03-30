@@ -47,7 +47,7 @@ public class SecurityController {
 	}
 	
 	@RequestMapping(value = "/login/idCheck", method = RequestMethod.POST)
-	public @ResponseBody Boolean memberShip(@RequestBody UserVo userVo) {
+	public @ResponseBody int memberShip(@RequestBody UserVo userVo) {
 		return securityService.idCheck(userVo);
 	}
 
