@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.shine.castle.config.SenderMail;
 import com.shine.castle.security.service.SecurityService;
 import com.shine.castle.security.vo.MailInfoVo;
 import com.shine.castle.security.vo.UserVo;
@@ -28,12 +27,6 @@ public class SecurityController {
 	@Autowired
 	private SecurityService securityService;
 	
-	@Autowired
-	private SenderMail senderMail;
-	
-	@Value("${mail_user}")
-	private String from;
-
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public String login(Model model) {
 		model.addAttribute("title", "로그인");
@@ -53,11 +46,6 @@ public class SecurityController {
 
 	@RequestMapping(value = "/login/emailCheck", method = RequestMethod.POST)
 	public @ResponseBody Boolean emailCheck(@RequestBody MailInfoVo mailInfoVo) {
-		mailInfoVo.setFrom(from);
-		mailInfoVo.setSubject("title");
-		mailInfoVo.setText("이메일 테스트");
-		log.info(mailInfoVo.toString());
-		senderMail.simpleCreateMessage(mailInfoVo);
-		return false;
+		return securityService.emailCheck(mailInfoVo);
 	}
 }

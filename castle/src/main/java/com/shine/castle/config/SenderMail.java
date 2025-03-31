@@ -1,6 +1,8 @@
 package com.shine.castle.config;
 
 import javax.mail.MessagingException;
+import javax.mail.internet.AddressException;
+import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,13 +12,19 @@ import org.springframework.stereotype.Component;
 
 import com.shine.castle.security.vo.MailInfoVo;
 
+import lombok.extern.slf4j.Slf4j;
 
+@Slf4j
 @Component
 public class SenderMail {
 	
 	@Autowired
 	private JavaMailSender mailSender;
 	
+    /**
+     * @param mail
+     * @return
+     */
     public MimeMessage CreateMail(String mail) {
         MimeMessage message = mailSender.createMimeMessage();
 
@@ -37,13 +45,38 @@ public class SenderMail {
     }
     
     
-    public void simpleCreateMessage(MailInfoVo info) {
-    	SimpleMailMessage simpleMsg = new SimpleMailMessage();
-    	simpleMsg.setFrom(info.getFrom());
-    	simpleMsg.setTo(info.getToEmail()+"@"+info.getToDoMain());
-    	simpleMsg.setSubject(info.getSubject());
-    	simpleMsg.setText(info.getText());
-    	mailSender.send(simpleMsg);
-    	//메일 전송 테이블 생성 후 저장
+    /**
+     * @param info
+     * @return
+     */
+    public Boolean simpleCreateMessage(MailInfoVo info) {
+    	try {
+    		String to = info.getToEmail()+"@"+info.getToDoMain();
+    		this.toAddrVdt(to);
+    		
+    		SimpleMailMessage simpleMsg = new SimpleMailMessage();
+        	simpleMsg.setFrom(info.getFrom());
+        	simpleMsg.setTo(to);
+        	simpleMsg.setSubject(info.getSubject());
+        	simpleMsg.setText(info.getText());
+        	mailSender.send(simpleMsg);
+        	//메일 전송 테이블 생성 후 저장
+        	return true;
+    	}catch (AddressException ad) {
+    		log.debug(ad.getMessage());
+    		return false;
+		}catch (Exception e) {
+			log.debug(e.getMessage());
+			return false;
+		}
+    	
+    }
+    
+    /**
+     * @param to
+     * @throws AddressException
+     */
+    public void toAddrVdt(String to) throws AddressException {
+    	new InternetAddress(to).validate();
     }
 }

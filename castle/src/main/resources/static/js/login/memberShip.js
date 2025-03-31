@@ -116,8 +116,13 @@ new Vue({
 		
 
 	},
-	emailCheck_callBack : function(){
-	
+	emailCheck_callBack : function(data){
+		if(data){
+			alert("인증번호를 요청했습니다.");
+		}else{
+			alert("관리자에게 문의하세요.");
+		}
+		
 	}
   }
 })
