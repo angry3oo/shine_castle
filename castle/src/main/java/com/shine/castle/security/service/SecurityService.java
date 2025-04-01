@@ -34,12 +34,11 @@ public class SecurityService implements UserDetailsService {
 	@Override
 	public UserDetails loadUserByUsername(String userId) throws UsernameNotFoundException{
 		UserVo user = securityMapper.findUserDetails(userId);
+		if(user == null) {
+			log.debug("[{}] Login Fail", userId);
+			throw new UsernameNotFoundException(userId);
+		}
 		user.setUserPassWord(passwordEncoder.encode(user.getUserPassWord()));
-		log.info(user.toString());
-//		if(user == null){
-//			log.info("[{}] Login Fail", userId);
-//            // 로그인 실패시 예외 던지기
-//        }
 		return user;
 	}
 	

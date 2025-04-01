@@ -2,7 +2,12 @@ package com.shine.castle.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.authentication.AccountExpiredException;
 import org.springframework.security.authentication.AuthenticationProvider;
+import org.springframework.security.authentication.BadCredentialsException;
+import org.springframework.security.authentication.CredentialsExpiredException;
+import org.springframework.security.authentication.DisabledException;
+import org.springframework.security.authentication.LockedException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
@@ -31,13 +36,31 @@ public class CustomAuthentication implements AuthenticationProvider {
 		String userId = determineUsername(authentication);
 			try {
 				UserDetails user = securityService.loadUserByUsername(userId);
-				this.check(user);
 				this.additionalAuthenticationChecks(user, (UsernamePasswordAuthenticationToken) authentication);
+				this.check(user);
 				return createSuccessAuthentication(authentication, user);
 			} catch (UsernameNotFoundException ex) {
 				log.debug(userId+" 가 존재하지 않습니다.");
 				return null;
-			} catch (AuthenticationException ex) {
+			} catch (LockedException le) {
+				log.debug("계정이 잠겼습니다.");
+				return null;
+			} catch (DisabledException de) {
+				log.debug("계정이 비활성화 되었습니다.");
+				return null;
+			} catch (AccountExpiredException aee) {
+				log.debug("계정이 만료되었습니다.");
+				return null;
+			} catch (CredentialsExpiredException ce) {
+				log.debug("비밀번호가 만료되었습니다.");
+				return null;
+			} catch (NullPointerException ne) {
+				log.debug("입력 받은 비밀번호 null 체크");
+				return null;
+			} catch (BadCredentialsException be) {
+				log.debug("현재 비밀번호 랑 저장되어있는 비밀번호 체크");
+				return null;
+			} catch (AuthenticationException ae) {
 				return null;
 			}
 	}
@@ -80,16 +103,16 @@ public class CustomAuthentication implements AuthenticationProvider {
 	 */
 	private void check(UserDetails toCheck) {
 		if (!toCheck.isAccountNonLocked()) {
-			log.debug("계정이 잠겼습니다.");
+			throw new LockedException(toCheck.getUsername());
 		}
 		if (!toCheck.isEnabled()) {
-			log.debug("계정이 비활성화 되었습니다.");
+			throw new DisabledException(toCheck.getUsername());
 		}
 		if (!toCheck.isAccountNonExpired()) {
-			log.debug("계정이 만료되었습니다.");
+			throw new AccountExpiredException(toCheck.getUsername());
 		}
 		if (!toCheck.isCredentialsNonExpired()) {
-			log.debug("비밀번호가 만료되었습니다.");
+			throw new CredentialsExpiredException(toCheck.getUsername());
 		}
 	}
 
@@ -103,11 +126,11 @@ public class CustomAuthentication implements AuthenticationProvider {
 	 */
 	private void additionalAuthenticationChecks(UserDetails userDetails, UsernamePasswordAuthenticationToken authentication) {
 		if (authentication.getCredentials() == null) {
-			log.info("입력 받은 비밀번호 null 체크");
+			throw new NullPointerException();
 		}
 		String presentedPassword = authentication.getCredentials().toString();
 		if (!this.passwordEncoder.matches(presentedPassword, userDetails.getPassword())) {
-			log.info("현재 비밀번호 랑 저장되어있는 비밀번호 체크");
+			throw new BadCredentialsException("no password");
 		}
 	}
 	
