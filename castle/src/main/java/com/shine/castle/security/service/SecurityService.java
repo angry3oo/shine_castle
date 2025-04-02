@@ -35,8 +35,7 @@ public class SecurityService implements UserDetailsService {
 	public UserDetails loadUserByUsername(String userId) throws UsernameNotFoundException{
 		UserVo user = securityMapper.findUserDetails(userId);
 		if(user == null) {
-			log.debug("[{}] Login Fail", userId);
-			throw new UsernameNotFoundException(userId);
+			throw new UsernameNotFoundException("UNFE");
 		}
 		user.setUserPassWord(passwordEncoder.encode(user.getUserPassWord()));
 		return user;

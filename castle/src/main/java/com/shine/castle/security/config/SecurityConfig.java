@@ -11,6 +11,7 @@ import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.csrf.CsrfTokenRepository;
 import org.springframework.security.web.csrf.HttpSessionCsrfTokenRepository;
 
+import com.shine.castle.config.FailureLoginHandler;
 import com.shine.castle.config.SuccessLoginHandler;
 
 @Order(2)
@@ -60,6 +61,7 @@ public class SecurityConfig {
 		.usernameParameter("userId")
 		.passwordParameter("passWord")
 		.successHandler(new SuccessLoginHandler())
+		.failureHandler(new FailureLoginHandler())
 		;
 		
 		
