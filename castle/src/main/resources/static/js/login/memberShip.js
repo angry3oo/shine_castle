@@ -92,8 +92,8 @@ new Vue({
 	birthDayDate : function(){
 		this.date.day = [];
 		var thatMonthDay = new Date(this.date.selectorYear, this.date.selectorMonth, 0).getDate();
-		for(var i = 1; i < thatMonthDay; i++){
-			this.date.day.push(i);
+		for(var i = 0; i < thatMonthDay; i++){
+			this.date.day.push(i + 1);
 		}
 		if(thatMonthDay < this.date.selectorDay){
 			this.date.selectorDay = 1;
